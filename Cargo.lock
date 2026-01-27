@@ -178,7 +178,7 @@ dependencies = [
  "cortex-m",
  "cortex-m-rt",
  "microbit-v2",
- "nrf52833-hal 0.19.0",
+ "nrf52833-hal 0.19.0 (git+https://github.com/BartMassey-upstream/nrf-hal?branch=rng-whitening)",
  "panic-rtt-target",
  "rtt-target",
 ]
@@ -221,12 +221,13 @@ checksum = "8d5439c4ad607c3c23abf66de8c8bf57ba8adcd1f129e699851a6e43935d339d"
 [[package]]
 name = "nrf-hal-common"
 version = "0.19.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "9d8100d0bf6d732ea9b0a294fa2d2dad9cba4fbc5bb655d0afaa984d03d528fe"
 dependencies = [
  "cast",
  "cfg-if",
  "cortex-m",
  "embedded-dma",
- "embedded-hal 0.2.7",
  "embedded-hal 1.0.0",
  "embedded-io",
  "embedded-storage",
@@ -241,13 +242,13 @@ dependencies = [
 [[package]]
 name = "nrf-hal-common"
 version = "0.19.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9d8100d0bf6d732ea9b0a294fa2d2dad9cba4fbc5bb655d0afaa984d03d528fe"
+source = "git+https://github.com/BartMassey-upstream/nrf-hal?branch=rng-whitening#8dea5549675c9d4c1526a4e5a4326ad9675ca813"
 dependencies = [
  "cast",
  "cfg-if",
  "cortex-m",
  "embedded-dma",
+ "embedded-hal 0.2.7",
  "embedded-hal 1.0.0",
  "embedded-io",
  "embedded-storage",
@@ -274,18 +275,19 @@ dependencies = [
 [[package]]
 name = "nrf52833-hal"
 version = "0.19.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5fa51030952f3454f2faffc64061456f17aec15f492d7b6ef68777bfc438c561"
 dependencies = [
- "nrf-hal-common 0.19.0",
+ "nrf-hal-common 0.19.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "nrf52833-pac",
 ]
 
 [[package]]
 name = "nrf52833-hal"
 version = "0.19.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5fa51030952f3454f2faffc64061456f17aec15f492d7b6ef68777bfc438c561"
+source = "git+https://github.com/BartMassey-upstream/nrf-hal?branch=rng-whitening#8dea5549675c9d4c1526a4e5a4326ad9675ca813"
 dependencies = [
- "nrf-hal-common 0.19.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "nrf-hal-common 0.19.0 (git+https://github.com/BartMassey-upstream/nrf-hal?branch=rng-whitening)",
  "nrf52833-pac",
 ]
 

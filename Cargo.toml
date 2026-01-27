@@ -11,7 +11,8 @@ rtt-target = "0.6"
 
 [dependencies.nrf52833-hal]
 version = "*"
-path = "/local/src/old/nrf-hal/nrf52833-hal"
+git = "https://github.com/BartMassey-upstream/nrf-hal"
+branch = "rng-whitening"
 
 [dependencies.cortex-m]
 version = "0.7"
