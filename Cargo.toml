@@ -1,0 +1,21 @@
+[package]
+name = "mb2-template"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+cortex-m-rt = "0.7"
+microbit-v2 = "0.16"
+panic-rtt-target = "0.2"
+rtt-target = "0.6"
+
+[dependencies.nrf52833-hal]
+version = "*"
+path = "/local/src/old/nrf-hal/nrf52833-hal"
+
+[dependencies.cortex-m]
+version = "0.7"
+features = ["inline-asm", "critical-section-single-core"]
+
+[features]
+unwhitened = []
