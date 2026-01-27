@@ -19,3 +19,4 @@ features = ["inline-asm", "critical-section-single-core"]
 
 [features]
 unwhitened = []
+blocked = []

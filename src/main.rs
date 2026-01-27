@@ -19,9 +19,23 @@ fn main() -> ! {
     timer.start(!0);
     let mut sum = 0;
     let mut count = 0u64;
+
+    #[cfg(feature = "blocked")]
+    const BLOCK_SIZE: u64 = 1000;
+    #[cfg(not(feature = "blocked"))]
+    const BLOCK_SIZE: u64 = 1;
+
     while timer.read() < 1_000_000 {
-        sum ^= rng.random_u8();
-        count += 1;
+        if cfg!(feature = "blocked") {
+            let mut buf = [0; BLOCK_SIZE as usize];
+            rng.random(&mut buf);
+            for b in buf {
+                sum ^= b;
+            }
+        } else {
+            sum ^= rng.random_u8();
+        }
+        count += BLOCK_SIZE;
     }
     rprintln!("{} {}", count, sum);
     loop {
