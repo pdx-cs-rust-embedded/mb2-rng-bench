@@ -12,12 +12,13 @@ rtt-target = "0.6"
 [dependencies.nrf52833-hal]
 version = "*"
 git = "https://github.com/BartMassey-upstream/nrf-hal"
-branch = "rng-whitening"
+branch = "rng-debiasing"
 
 [dependencies.cortex-m]
 version = "0.7"
 features = ["inline-asm", "critical-section-single-core"]
 
 [features]
-unwhitened = []
+biased = []
 blocked = []
+measure_bias = []

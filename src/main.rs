@@ -13,31 +13,49 @@ fn main() -> ! {
     rtt_init_print!();
     let board = Board::take().unwrap();
     let mut rng = Rng::new(board.RNG);
-    #[cfg(feature = "unwhitened")]
-    rng.set_whitening(false);
+    #[cfg(feature = "biased")]
+    rng.set_debiasing(false);
     let mut timer = Timer::new(board.TIMER0);
     timer.start(!0);
-    let mut sum = 0;
-    let mut count = 0u64;
+
 
     #[cfg(feature = "blocked")]
-    const BLOCK_SIZE: u64 = 1000;
+    const BLOCK_SIZE: usize = 1000;
     #[cfg(not(feature = "blocked"))]
-    const BLOCK_SIZE: u64 = 1;
+    const BLOCK_SIZE: usize = 1;
+
+    let mut count = 0u64;
+    let mut sum = 0;
+    let mut one_bits = 0u64;
 
     while timer.read() < 1_000_000 {
         if cfg!(feature = "blocked") {
-            let mut buf = [0; BLOCK_SIZE as usize];
+            let mut buf = [0; BLOCK_SIZE];
             rng.random(&mut buf);
             for b in buf {
-                sum ^= b;
+                if cfg!(feature = "measure_bias") {
+                    one_bits += b.count_ones() as u64;
+                } else {
+                    sum ^= b;
+                }
             }
         } else {
-            sum ^= rng.random_u8();
+            let b = rng.random_u8();
+            if cfg!(feature = "measure_bias") {
+                one_bits += b.count_ones() as u64;
+            } else {
+                sum ^= b;
+            }
         }
-        count += BLOCK_SIZE;
+        count += BLOCK_SIZE as u64;
     }
-    rprintln!("{} {}", count, sum);
+
+    if cfg!(feature = "measure_bias") {
+        rprintln!("{} {} {}", count, one_bits, 8 * count - one_bits);
+    } else {
+        rprintln!("{} {}", count, sum);
+    }
+
     loop {
         core::hint::spin_loop();
     }
