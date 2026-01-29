@@ -10,9 +10,8 @@ panic-rtt-target = "0.2"
 rtt-target = "0.6"
 
 [dependencies.nrf52833-hal]
-version = "*"
-git = "https://github.com/BartMassey-upstream/nrf-hal"
-branch = "rng-debiasing"
+git = "https://github.com/nrf-rs/nrf-hal"
+rev = "6d133394aea45dce797cb587871888eaee935bc9"
 
 [dependencies.cortex-m]
 version = "0.7"

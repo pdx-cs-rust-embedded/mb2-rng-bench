@@ -178,7 +178,7 @@ dependencies = [
  "cortex-m",
  "cortex-m-rt",
  "microbit-v2",
- "nrf52833-hal 0.19.0 (git+https://github.com/BartMassey-upstream/nrf-hal?branch=rng-debiasing)",
+ "nrf52833-hal 0.19.0 (git+https://github.com/nrf-rs/nrf-hal?rev=6d133394aea45dce797cb587871888eaee935bc9)",
  "panic-rtt-target",
  "rtt-target",
 ]
@@ -242,7 +242,7 @@ dependencies = [
 [[package]]
 name = "nrf-hal-common"
 version = "0.19.0"
-source = "git+https://github.com/BartMassey-upstream/nrf-hal?branch=rng-debiasing#84d9b6edd0f3342ebb0f9741b98fd87d289fd215"
+source = "git+https://github.com/nrf-rs/nrf-hal?rev=6d133394aea45dce797cb587871888eaee935bc9#6d133394aea45dce797cb587871888eaee935bc9"
 dependencies = [
  "cast",
  "cfg-if",
@@ -285,9 +285,9 @@ dependencies = [
 [[package]]
 name = "nrf52833-hal"
 version = "0.19.0"
-source = "git+https://github.com/BartMassey-upstream/nrf-hal?branch=rng-debiasing#84d9b6edd0f3342ebb0f9741b98fd87d289fd215"
+source = "git+https://github.com/nrf-rs/nrf-hal?rev=6d133394aea45dce797cb587871888eaee935bc9#6d133394aea45dce797cb587871888eaee935bc9"
 dependencies = [
- "nrf-hal-common 0.19.0 (git+https://github.com/BartMassey-upstream/nrf-hal?branch=rng-debiasing)",
+ "nrf-hal-common 0.19.0 (git+https://github.com/nrf-rs/nrf-hal?rev=6d133394aea45dce797cb587871888eaee935bc9)",
  "nrf52833-pac",
 ]
 
